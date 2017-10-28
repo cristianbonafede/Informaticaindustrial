@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="entidades.MateriaPrima" table="materiaprima">
+        <id name="codigoMateriaPrima" type="int">
+            <column name="codigoMateriaPrima"/>
+        </id>
+        <property name="descripcionMateriaPrima" type="string">
+            <column name="descripcionMateriaPrima"/>
+        </property>
+        <property name="nombreMateriaPrima" type="string">
+            <column name="nombreMateriaPrima"/>
+        </property>
+        <property name="unidadMedida" type="string">
+            <column name="unidadMedida"/>
+        </property>
+        <property name="cantidadDisponible" type="int">
+            <column name="cantidadDisponible"/>
+        </property>
+        <property name="precioPorUnidad" type="int">
+            <column name="precioPorUnidad"/>
+        </property>
+         
+        
+     </class>
+</hibernate-mapping>

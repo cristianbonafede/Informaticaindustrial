@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="entidades.ProductoMateriaPrima" table="productomateriaprima">
+  
+      <id name="codigoProductoMateriaPrima" type="int">
+            <column name="codigoProductoMateriaPrima"/>
+         
+      </id>
+        <property name="cantidadMateriaPrima" type="int">
+            <column name="cantidadMateriaPrima"/>
+        </property>
+        <many-to-one name="codigoMateriaPrima" column="codigoMateriaPrima" class="entidades.MateriaPrima" not-null="true"/>
+        <many-to-one name="codigoProductoTerminado" column="codigoProductoTerminado" class="entidades.ProductoTerminado" not-null="true"/>
+   
+
+  
+  </class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="entidades.Maquinaria" table="maquinaria">
+      <id  name="codigoMaquinaria" type="int">
+            <column name="codigoMaquinaria"/>
+
+      </id>
+        <property name="descripcionMaquinaria" type="string">
+            <column name="descripcionMaquinaria"/>
+        </property>
+        <property name="datosMantenimiento" type="string">
+            <column name="datosMantenimiento"/>
+        </property>
+        <property name="nombreMaquinaria" type="string">
+            <column name="nombreMaquinaria"/>
+        </property>
+            <many-to-one name="codigoCentroTrabajo" column="codigoCentroTrabajo" class="entidades.CentroTrabajo" not-null="true"/>
+ 
+  </class>
+</hibernate-mapping>
