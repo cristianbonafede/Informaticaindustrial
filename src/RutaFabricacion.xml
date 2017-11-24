@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="entidades.RutaFabricacion" table="rutafabricacion">
+      
+            <id name="codigoRutaFabricacion" type="int">
+            <column name="codigoRutaFabricacion"/>
+  
+            </id>
+        <property name="numeroOrden" type="int">
+            <column name="numeroOrden"/>
+        </property>
+        <property name="tiempoMaquinaria" type="int">
+            <column name="tiempoMaquinaria"/>
+        </property>
+        <property name="tiempoManoObra" type="int">
+            <column name="tiempoManoObra"/>
+        </property>
+        <property name="tiempoRestante" type="int">
+            <column name="tiempoRestante"/>
+        </property>
+        <many-to-one name="codigoCentroTrabajo" column="codigoCentroTrabajo" class="entidades.CentroTrabajo" not-null="true"/>
+        <many-to-one name="codigoProductoTerminado" column="codigoProductoTerminado" class="entidades.ProductoTerminado" not-null="true"/>
+   
+  </class>
+</hibernate-mapping>

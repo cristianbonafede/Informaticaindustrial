@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="entidades.CentroTrabajo" table="centrotrabajo">
+      <id  name="codigoCentroTrabajo" type="int">
+            <column name="codigoCentroTrabajo"/>
+      </id>
+        <property name="descripcionCentroTrabajo" type="string">
+            <column name="descripcionCentroTrabajo"/>
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="ubicacion"/>
+        </property>
+        <property name="nombreCentroTrabajo" type="string">
+            <column name="nombreCentroTrabajo"/>
+        </property>
+            <property name="costoHoraHombrePesos" type="int">
+            <column name="costoHoraHombrePesos"/>
+        </property>
+            <property name="costoHoraMaquinaPesos" type="int">
+            <column name="costoHoraMaquinaPesos"/>
+        </property>
+  </class>
+</hibernate-mapping>
