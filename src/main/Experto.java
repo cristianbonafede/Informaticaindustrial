@@ -14,6 +14,7 @@ public class Experto {
     private ProductoMateriaPrima productoMateriaPrima;
     private CentroTrabajo centroTrabajo;
     private Maquinaria maquinaria;
+    private CostoFijo costoFijo;
     private RutaFabricacion rutaFabricacion;
 
     public List<MateriaPrima> iniciar() {
@@ -38,6 +39,29 @@ public class Experto {
         }
 
         return listaMateriaPrima;
+    }
+    public List<CostoFijo> iniciarCostoFijo() {
+
+        List<CostoFijo> listaCostoFijo = new ArrayList<>();
+
+        DTOCriterio c0 = new DTOCriterio();// criterio 0
+        c0.setAtributo("");
+        c0.setOperacion("");
+        c0.setValor("");
+        List<DTOCriterio> l0 = new ArrayList<>(); //lista de criterios 0
+        l0.clear();
+        l0.add(c0);
+
+        // Todos los tipos impuestos
+        List<Object> listaCostoFijoe = FachadaPersistencia.getInstance().buscar("CostoFijo", l0);
+
+        for (Object result : listaCostoFijoe) {
+            costoFijo = (CostoFijo) result;
+            System.out.println(costoFijo.getNombreCostoFijo());
+            listaCostoFijo.add(costoFijo);
+        }
+
+        return listaCostoFijo;
     }
 
     public List<ProductoTerminado> iniciarProductoTerminado() {
@@ -269,6 +293,30 @@ public class Experto {
         FachadaPersistencia.getInstance().guardar(materiaPrimaNueva);
 
     }
+    public void altaCostoFijo(CostoFijo costoFijoNuevo) {
+
+        int codigo = costoFijoNuevo.getCodigoCostoFijo(); //obtengo el codigo
+
+        DTOCriterio c1 = new DTOCriterio();
+        c1.setAtributo("codigoCostoFijo");
+        c1.setOperacion("=");
+        c1.setValor(codigo);
+        List<DTOCriterio> l1 = new ArrayList<>();
+        l1.clear();
+        l1.add(c1);
+
+        try {
+            CostoFijo costo = (CostoFijo) FachadaPersistencia.getInstance().buscar("CostoFijo", l1).get(0);
+            if (costo != null) {
+                System.out.println("LA MATERIA PRIMA INGRESADA YA EXISTE");
+            }
+            System.exit(0);
+        } catch (IndexOutOfBoundsException e) {
+        }// Si no encuentra registro cae en catch y lo crea
+
+        FachadaPersistencia.getInstance().guardar(costoFijoNuevo);
+
+    }
 
     public void altaMaquinaria(Maquinaria maquinariaNueva) {
 
@@ -362,6 +410,22 @@ public class Experto {
         return materiaPrima;
 
     }
+    public CostoFijo modificarCostoFijo(int codigo) {
+
+        DTOCriterio c4 = new DTOCriterio();
+        c4.setAtributo("codigoCostoFijo");
+        c4.setOperacion("=");
+        c4.setValor(codigo);
+        List<DTOCriterio> l4 = new ArrayList<>();
+        l4.clear();
+        l4.add(c4); // Creo criterio para buscar si ya existe el TipoImpuesto
+
+        CostoFijo costofijo = (CostoFijo) FachadaPersistencia.getInstance().buscar("CostoFijo", l4).get(0);
+        costoFijo = costofijo;
+
+        return costoFijo;
+
+    }
 
     public RutaFabricacion modificarRutaFabricacion(int codigo) {
 
@@ -445,6 +509,20 @@ public class Experto {
         materiaPrima.setPrecioPorUnidad(precio);
 
         FachadaPersistencia.getInstance().guardar(materiaPrima);
+
+    }
+
+    public void modificarSeleccionCF(CostoFijo costoFijoM) {
+
+        String nombreCostoFijo = costoFijoM.getNombreCostoFijo();
+        costoFijo.setNombreCostoFijo(nombreCostoFijo);
+         String descripcion = costoFijoM.getDescripcionCostoFijo();
+        costoFijo.setDescripcionCostoFijo(descripcion);
+        int pesos = costoFijoM.getPesos();
+        costoFijo.setPesos(pesos);
+  
+
+        FachadaPersistencia.getInstance().guardar(costoFijo);
 
     }
 
@@ -571,6 +649,23 @@ public class Experto {
         } else {
             JOptionPane.showMessageDialog(null, "No se puede eliminar materia prima porque esta asociada a una estructura producto");
         }
+
+    }
+    public void bajaCF(int cod) {
+
+        List<DTOCriterio> criterioList = new ArrayList<>();
+        DTOCriterio criterio3 = new DTOCriterio();
+        criterio3.setAtributo("codigoCostoFijo");
+        criterio3.setOperacion("=");
+        criterio3.setValor(cod);
+        criterioList.clear();
+        criterioList.add(criterio3);
+
+        CostoFijo costoFijo = (CostoFijo) FachadaPersistencia.getInstance().buscar("CostoFijo", criterioList).get(0);
+
+    
+            FachadaPersistencia.getInstance().eliminar(costoFijo);
+       
 
     }
 

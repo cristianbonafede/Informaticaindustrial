@@ -1,5 +1,6 @@
 package main;
 import entidades.CentroTrabajo;
+import entidades.CostoFijo;
 import entidades.Maquinaria;
 import entidades.MateriaPrima;
 import entidades.ProductoMateriaPrima;
@@ -15,6 +16,10 @@ public class Controlador{
   
         return  experto.iniciar(); 
     }
+    public List<CostoFijo> iniciarCostoFijo() {      
+  
+        return  experto.iniciarCostoFijo(); 
+    }
     public List<Maquinaria> iniciarMaquinaria() {      
   
         return  experto.iniciarMaquinaria(); 
@@ -29,6 +34,9 @@ public class Controlador{
     
        public void altaMateriaPrima(MateriaPrima materiaPrima){ 
                experto.altaMateriaPrima(materiaPrima);
+    }
+       public void altaCostoFijo(CostoFijo costoFijo){ 
+               experto.altaCostoFijo(costoFijo);
     }
        public void altaMaquinaria(Maquinaria maquinaria){ 
                experto.altaMaquinaria(maquinaria);
@@ -67,6 +75,9 @@ public class Controlador{
       public MateriaPrima modificarMateriaPrima(int codigo){    
         return experto.modificarMateriaPrima(codigo);
     }
+      public CostoFijo modificarCostoFijo(int codigo){    
+        return experto.modificarCostoFijo(codigo);
+    }
       public Maquinaria modificarMaquinaria(int codigo){    
         return experto.modificarMaquinaria(codigo);
     }
@@ -80,6 +91,9 @@ public class Controlador{
           public void modificarSeleccionMP(MateriaPrima materiaPrima){
           experto.modificarSeleccionMP(materiaPrima);
      }
+          public void modificarSeleccionCF(CostoFijo costoFijo){
+          experto.modificarSeleccionCF(costoFijo);
+     }
           public void modificarSeleccionMaq(Maquinaria maquinaria){
           experto.modificarSeleccionMaq(maquinaria);
      }
@@ -92,6 +106,9 @@ public class Controlador{
     
         public void bajaMP(int cod){
         experto.bajaMP(cod);
+    }
+        public void bajaCF(int cod){
+        experto.bajaCF(cod);
     }
         public void bajaMaq(int cod){
         experto.bajaMaq(cod);

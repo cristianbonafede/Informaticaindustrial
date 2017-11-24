@@ -20,5 +20,6 @@
     <mapping resource="ProductoMateriaPrima.xml"/>
     <mapping resource="CentroTrabajo.xml"/>
     <mapping resource="RutaFabricacion.xml"/>
+    <mapping resource="CostoFijo.xml"/>
   </session-factory>
 </hibernate-configuration>
