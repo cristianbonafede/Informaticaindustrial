@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="entidades.OrdenCompra" table="ordencompra">
+      <id  name="codigoOrdenCompra" type="int">
+            <column name="codigoOrdenCompra"/>
+      </id>
+        <property name="fechaOrdenCompra" type="date">
+            <column name="fechaOrdenCompra"/>
+        </property>
+        <property name="estadoOrdenCompra" type="string">
+            <column name="estadoOrdenCompra"/>
+        </property>
+        <property name="cantidadComprar" type="int">
+            <column name="cantidadComprar"/>
+        </property>
+      
+            <many-to-one name="materiaPrima" column="codigoMateriaPrima" class="entidades.MateriaPrima" not-null="true"/>
+ 
+  </class>
+</hibernate-mapping>

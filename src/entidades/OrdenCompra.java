@@ -5,7 +5,10 @@
  */
 package entidades;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  *
@@ -13,17 +16,44 @@ import java.util.Date;
  */
 public class OrdenCompra {
     
-    private int codigo;
+    private int codigoOrdenCompra;
     private MateriaPrima materiaPrima;
-    private Date fecha;
-    private String estado;
+    private java.util.Date fechaOrdenCompra;
 
-    public int getCodigo() {
-        return codigo;
+    private String estadoOrdenCompra;
+    private int cantidadComprar;
+
+    public OrdenCompra(int codigoOrdenCompra, MateriaPrima materiaPrima, int cantidadComprar) {
+        this.codigoOrdenCompra = codigoOrdenCompra;
+        this.materiaPrima = materiaPrima;
+        this.estadoOrdenCompra = "Creada";
+        this.cantidadComprar = cantidadComprar;
+        this.fechaOrdenCompra = Calendar.getInstance().getTime();
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    
+    public OrdenCompra()
+    {
+        
+    }
+    public void setFechaOrdenCompra(Date fechaOrdenCompra) {
+        this.fechaOrdenCompra = fechaOrdenCompra;
+    }
+    
+    public int getCantidadComprar() {
+        return cantidadComprar;
+    }
+
+    public void setCantidadComprar(int cantidadComprar) {
+        this.cantidadComprar = cantidadComprar;
+    }
+
+    public int getCodigoOrdenCompra() {
+        return codigoOrdenCompra;
+    }
+
+    public void setCodigoOrdenCompra(int codigoOrdenCompra) {
+        this.codigoOrdenCompra = codigoOrdenCompra;
     }
 
     public MateriaPrima getMateriaPrima() {
@@ -34,23 +64,21 @@ public class OrdenCompra {
         this.materiaPrima = materiaPrima;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Date getFechaOrdenCompra() {
+        return fechaOrdenCompra;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+
+
+    public String getEstadoOrdenCompra() {
+        return estadoOrdenCompra;
     }
 
-    public String getEstado() {
-        return estado;
+    public void setEstadoOrdenCompra(String estadoOrdenCompra) {
+        this.estadoOrdenCompra = estadoOrdenCompra;
     }
+   
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-    
-    
     
     
 }

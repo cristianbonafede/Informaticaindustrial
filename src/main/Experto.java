@@ -15,6 +15,7 @@ public class Experto {
     private CentroTrabajo centroTrabajo;
     private Maquinaria maquinaria;
     private CostoFijo costoFijo;
+    private OrdenCompra ordenCompra;
     private RutaFabricacion rutaFabricacion;
 
     public List<MateriaPrima> iniciar() {
@@ -62,6 +63,28 @@ public class Experto {
         }
 
         return listaCostoFijo;
+    }
+    public List<OrdenCompra> iniciarOrdenCompra() {
+
+        List<OrdenCompra> listaOrdenCompra = new ArrayList<>();
+
+        DTOCriterio c0 = new DTOCriterio();// criterio 0
+        c0.setAtributo("");
+        c0.setOperacion("");
+        c0.setValor("");
+        List<DTOCriterio> l0 = new ArrayList<>(); //lista de criterios 0
+        l0.clear();
+        l0.add(c0);
+
+        // Todos los tipos impuestos
+        List<Object> listaOrdenComprae = FachadaPersistencia.getInstance().buscar("OrdenCompra", l0);
+
+        for (Object result : listaOrdenComprae) {
+            ordenCompra = (OrdenCompra) result;
+           listaOrdenCompra.add(ordenCompra);
+        }
+
+        return listaOrdenCompra;
     }
 
     public List<ProductoTerminado> iniciarProductoTerminado() {
@@ -293,6 +316,30 @@ public class Experto {
         FachadaPersistencia.getInstance().guardar(materiaPrimaNueva);
 
     }
+    public void altaOrdenCompra(OrdenCompra ordenCompraNueva) {
+
+        int codigo = ordenCompraNueva.getCodigoOrdenCompra(); //obtengo el codigo
+
+        DTOCriterio c1 = new DTOCriterio();
+        c1.setAtributo("codigoOrdenCompra");
+        c1.setOperacion("=");
+        c1.setValor(codigo);
+        List<DTOCriterio> l1 = new ArrayList<>();
+        l1.clear();
+        l1.add(c1);
+
+        try {
+            OrdenCompra orden = (OrdenCompra) FachadaPersistencia.getInstance().buscar("OrdenCompra", l1).get(0);
+            if (orden != null) {
+                System.out.println("La orden INGRESADA YA EXISTE");
+            }
+            System.exit(0);
+        } catch (IndexOutOfBoundsException e) {
+        }// Si no encuentra registro cae en catch y lo crea
+
+        FachadaPersistencia.getInstance().guardar(ordenCompraNueva);
+
+    }
     public void altaCostoFijo(CostoFijo costoFijoNuevo) {
 
         int codigo = costoFijoNuevo.getCodigoCostoFijo(); //obtengo el codigo
@@ -410,6 +457,46 @@ public class Experto {
         return materiaPrima;
 
     }
+    public OrdenCompra buscarOrdenCompra(int codigo) {
+
+        DTOCriterio c4 = new DTOCriterio();
+        c4.setAtributo("codigoOrdenCompra");
+        c4.setOperacion("=");
+        c4.setValor(codigo);
+        List<DTOCriterio> l4 = new ArrayList<>();
+        l4.clear();
+        l4.add(c4); // Creo criterio para buscar si ya existe el TipoImpuesto
+
+        OrdenCompra ordencompra = (OrdenCompra) FachadaPersistencia.getInstance().buscar("OrdenCompra", l4).get(0);
+        ordenCompra = ordencompra;
+
+        return ordenCompra;
+
+    }
+    public List<OrdenCompra>  buscarOrdenCompraPorMateria(int codigo) {
+        MateriaPrima mPrima = modificarMateriaPrima(codigo);
+
+         List<OrdenCompra> listaOrdenCompra = new ArrayList<>();
+        DTOCriterio c4 = new DTOCriterio();
+        c4.setAtributo("materiaPrima");
+        c4.setOperacion("=");
+        c4.setValor(mPrima);
+        List<DTOCriterio> l4 = new ArrayList<>();
+        l4.clear();
+        l4.add(c4); // Creo criterio para buscar si ya existe el TipoImpuesto
+
+     List<Object> listaOrdenComprae = FachadaPersistencia.getInstance().buscar("OrdenCompra", l4);
+
+        for (Object result : listaOrdenComprae) {
+            ordenCompra = (OrdenCompra) result;
+           listaOrdenCompra.add(ordenCompra);
+        }
+
+        return listaOrdenCompra;
+
+     
+
+    }
     public CostoFijo modificarCostoFijo(int codigo) {
 
         DTOCriterio c4 = new DTOCriterio();
@@ -511,7 +598,17 @@ public class Experto {
         FachadaPersistencia.getInstance().guardar(materiaPrima);
 
     }
+    public void modificarSeleccionOC(OrdenCompra ordenCompraN) {
 
+        String estadoOrdenCompra = ordenCompraN.getEstadoOrdenCompra();
+        ordenCompra.setEstadoOrdenCompra(estadoOrdenCompra);
+
+        FachadaPersistencia.getInstance().guardar(ordenCompra);
+
+    }
+
+    
+    
     public void modificarSeleccionCF(CostoFijo costoFijoM) {
 
         String nombreCostoFijo = costoFijoM.getNombreCostoFijo();

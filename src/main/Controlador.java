@@ -3,6 +3,7 @@ import entidades.CentroTrabajo;
 import entidades.CostoFijo;
 import entidades.Maquinaria;
 import entidades.MateriaPrima;
+import entidades.OrdenCompra;
 import entidades.ProductoMateriaPrima;
 import entidades.ProductoTerminado;
 import entidades.RutaFabricacion;
@@ -20,6 +21,10 @@ public class Controlador{
   
         return  experto.iniciarCostoFijo(); 
     }
+    public List<OrdenCompra> iniciarOrdenCompra() {      
+  
+        return  experto.iniciarOrdenCompra(); 
+    }
     public List<Maquinaria> iniciarMaquinaria() {      
   
         return  experto.iniciarMaquinaria(); 
@@ -34,6 +39,9 @@ public class Controlador{
     
        public void altaMateriaPrima(MateriaPrima materiaPrima){ 
                experto.altaMateriaPrima(materiaPrima);
+    }
+       public void altaOrdenCompra(OrdenCompra ordenCompra){ 
+               experto.altaOrdenCompra(ordenCompra);
     }
        public void altaCostoFijo(CostoFijo costoFijo){ 
                experto.altaCostoFijo(costoFijo);
@@ -75,6 +83,12 @@ public class Controlador{
       public MateriaPrima modificarMateriaPrima(int codigo){    
         return experto.modificarMateriaPrima(codigo);
     }
+      public OrdenCompra buscarOrdenCompra(int codigo){    
+        return experto.buscarOrdenCompra(codigo);
+    }
+      public  List<OrdenCompra> buscarOrdenCompraPorMateria(int codigo){    
+        return experto.buscarOrdenCompraPorMateria(codigo);
+    }
       public CostoFijo modificarCostoFijo(int codigo){    
         return experto.modificarCostoFijo(codigo);
     }
@@ -90,6 +104,9 @@ public class Controlador{
       
           public void modificarSeleccionMP(MateriaPrima materiaPrima){
           experto.modificarSeleccionMP(materiaPrima);
+     }
+          public void modificarSeleccionOC(OrdenCompra ordenCompra){
+          experto.modificarSeleccionOC(ordenCompra);
      }
           public void modificarSeleccionCF(CostoFijo costoFijo){
           experto.modificarSeleccionCF(costoFijo);

@@ -21,6 +21,12 @@
         <property name="precioPorUnidad" type="int">
             <column name="precioPorUnidad"/>
         </property>
+        <property name="cantidadReservada" type="int">
+            <column name="cantidadReservada"/>
+        </property>
+        <property name="cantidadOptima" type="int">
+            <column name="cantidadOptima"/>
+        </property>
          
         
      </class>

@@ -28,6 +28,7 @@ public class MateriaPrima {
         this.cantidadDisponible = cantidadDisponible;
         this.precioPorUnidad = precioPorUnidad;
         this.cantidadOptima = cantidadOptima;
+        this.cantidadReservada=0;
     }
 
 

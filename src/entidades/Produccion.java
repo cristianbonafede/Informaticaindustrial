@@ -13,17 +13,18 @@ import java.util.Date;
  */
 public class Produccion {
 
-    private int codigo;
+    private int codigoOrdenProduccion;
     private ProductoTerminado productoTerminado;
-    private Date fecha;
-    private String estado;
+    private int cantidadProducir;
+    private Date fechaOrdenProduccion;
+    private String estadoOrdenProduccion;
 
-    public int getCodigo() {
-        return codigo;
+    public int getCodigoOrdenProduccion() {
+        return codigoOrdenProduccion;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigoOrdenProduccion(int codigoOrdenProduccion) {
+        this.codigoOrdenProduccion = codigoOrdenProduccion;
     }
 
     public ProductoTerminado getProductoTerminado() {
@@ -34,20 +35,29 @@ public class Produccion {
         this.productoTerminado = productoTerminado;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public int getCantidadProducir() {
+        return cantidadProducir;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setCantidadProducir(int cantidadProducir) {
+        this.cantidadProducir = cantidadProducir;
     }
 
-    public String getEstado() {
-        return estado;
+    public Date getFechaOrdenProduccion() {
+        return fechaOrdenProduccion;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setFechaOrdenProduccion(Date fechaOrdenProduccion) {
+        this.fechaOrdenProduccion = fechaOrdenProduccion;
     }
 
+    public String getEstadoOrdenProduccion() {
+        return estadoOrdenProduccion;
+    }
+
+    public void setEstadoOrdenProduccion(String estadoOrdenProduccion) {
+        this.estadoOrdenProduccion = estadoOrdenProduccion;
+    }
+
+  
 }

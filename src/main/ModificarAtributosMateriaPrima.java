@@ -79,6 +79,7 @@ public class ModificarAtributosMateriaPrima extends javax.swing.JFrame {
        String descripcion = materiaPrima.getDescripcionMateriaPrima();
        String cantidad = Integer.toString(materiaPrima.getCantidadDisponible());
        String precio = Integer.toString(materiaPrima.getPrecioPorUnidad());
+       String optima = Integer.toString(materiaPrima.getCantidadOptima());
        
        txtCodigo.setText(codigo);
        txtModificable.setText(unidad);
@@ -86,7 +87,7 @@ public class ModificarAtributosMateriaPrima extends javax.swing.JFrame {
        jTextDescripcion.setText(descripcion);
        jTextCantidad.setText(cantidad);
        jTextPrecio.setText(precio);
-           
+       jTextOptima.setText(optima);
 }
    
     
@@ -113,6 +114,8 @@ public class ModificarAtributosMateriaPrima extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextPrecio = new javax.swing.JTextField();
         jTextCantidad = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTextOptima = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -183,6 +186,8 @@ public class ModificarAtributosMateriaPrima extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setText("Cantidad Optima:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -203,6 +208,11 @@ public class ModificarAtributosMateriaPrima extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel12)
+                        .addGap(27, 27, 27)
+                        .addComponent(jTextOptima, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -250,7 +260,11 @@ public class ModificarAtributosMateriaPrima extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextOptima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jButton1.setText("Guardar");
@@ -310,6 +324,7 @@ else{
         String unidad = txtModificable.getText();
         String nombre = txtNombre.getText();
         String descripcion = jTextDescripcion.getText();
+        int cantidadOptima = (int) Integer.parseInt(jTextOptima.getText());
         int precio = (int)Integer.parseInt(jTextPrecio.getText());
         int cantidad = (int)Integer.parseInt(jTextCantidad.getText());
         this.materiaPrima.setCodigoMateriaPrima(codigo); 
@@ -318,6 +333,7 @@ else{
         this.materiaPrima.setUnidadMedida(unidad);
         this.materiaPrima.setCantidadDisponible(cantidad);
         this.materiaPrima.setPrecioPorUnidad(precio);
+        this.materiaPrima.setCantidadOptima(cantidadOptima);
      controladorABM.modificarSeleccionMP(this.materiaPrima);
     dispose(); 
                 List<MateriaPrima> listMateriaPrima = controladorABM.iniciar();
@@ -382,6 +398,7 @@ else{
     private javax.swing.JDialog dialogoNombreEnBlanco;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -393,6 +410,7 @@ else{
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextCantidad;
     private javax.swing.JTextArea jTextDescripcion;
+    private javax.swing.JTextField jTextOptima;
     private javax.swing.JTextField jTextPrecio;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtModificable;
