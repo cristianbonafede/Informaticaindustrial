@@ -17,21 +17,42 @@ public class MateriaPrima {
    private String descripcionMateriaPrima; 
    private int cantidadDisponible;
    private int precioPorUnidad;
+   private int cantidadReservada;
+   private int cantidadOptima;
 
-    public MateriaPrima(int codigoMateriaPrima, String nombreMateriaPrima, String unidadMedida, String descripcionMateriaPrima, int cantidadDisponible, int precioPorUnidad) {
+    public MateriaPrima(int codigoMateriaPrima, String nombreMateriaPrima, String unidadMedida, String descripcionMateriaPrima, int cantidadDisponible, int precioPorUnidad, int cantidadOptima) {
         this.codigoMateriaPrima = codigoMateriaPrima;
         this.nombreMateriaPrima = nombreMateriaPrima;
         this.unidadMedida = unidadMedida;
         this.descripcionMateriaPrima = descripcionMateriaPrima;
         this.cantidadDisponible = cantidadDisponible;
         this.precioPorUnidad = precioPorUnidad;
+        this.cantidadOptima = cantidadOptima;
     }
+
+
    
    
 
 
     public MateriaPrima() {
        
+    }
+
+    public int getCantidadReservada() {
+        return cantidadReservada;
+    }
+
+    public void setCantidadReservada(int cantidadReservada) {
+        this.cantidadReservada = cantidadReservada;
+    }
+
+    public int getCantidadOptima() {
+        return cantidadOptima;
+    }
+
+    public void setCantidadOptima(int cantidadOptima) {
+        this.cantidadOptima = cantidadOptima;
     }
 
     public int getCantidadDisponible() {
