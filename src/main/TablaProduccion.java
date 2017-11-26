@@ -1,5 +1,6 @@
 package main;
 
+import entidades.MateriaPrima;
 import entidades.Produccion;
 import entidades.ProductoMateriaPrima;
 import entidades.ProductoTerminado;
@@ -122,7 +123,7 @@ public class TablaProduccion extends javax.swing.JFrame {
 
         jLabel1.setText("Filtrar por:");
 
-        boron.setText("Cancelar");
+        boron.setText("Volver");
         boron.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boronActionPerformed(evt);
@@ -248,7 +249,7 @@ public class TablaProduccion extends javax.swing.JFrame {
             //Verificar que se puede producir
             for (ProductoMateriaPrima productoMP : listProductoMateriaPrima) {
                 if (productoMP.getCodigoMateriaPrima().getCantidadDisponible() < productoMP.getCantidadMateriaPrima() * cantidadProducir) {
-                    listMPFaltante.add("Codigo: " + productoMP.getCodigoMateriaPrima().getCodigoMateriaPrima() + " Nombre: " + productoMP.getCodigoMateriaPrima().getNombreMateriaPrima());
+                    listMPFaltante.add("Codigo: " + productoMP.getCodigoMateriaPrima().getCodigoMateriaPrima() + " Nombre: " + productoMP.getCodigoMateriaPrima().getNombreMateriaPrima() + " Cantidad Disponible: " + productoMP.getCodigoMateriaPrima().getCantidadDisponible() + " Cantidad Necesaria: " + productoMP.getCantidadMateriaPrima() * cantidadProducir);
                 }
             }
             if (listMPFaltante.isEmpty()) {
@@ -275,11 +276,18 @@ public class TablaProduccion extends javax.swing.JFrame {
                 //Actualizar Tabla Produccion
                 cargarTablaProduccion();
             } else {
-                JOptionPane.showMessageDialog(null, "No se puede producir porque...");
-
-                //FALTA agregar que muestre los elementos que no tienen stock, lo que necesito y lo que tengo, enviar a ventana de generar OC (puede ser ventana con doble boton)
+                String mensaje = "";
                 for (String mp : listMPFaltante) {
-                    System.out.println(mp);
+                    mensaje = mensaje + mp + "\n";
+                }
+                mensaje = mensaje + "¿Desea ir al modulo de Orden de Compra para solicitarlas?";
+
+                int result = JOptionPane.showOptionDialog(this, mensaje, "Materias Primas Faltantes", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"Si, ir a OrdenCompra", "No, volver"}, JOptionPane.NO_OPTION);
+                if (result == JOptionPane.YES_OPTION) {
+                    List<MateriaPrima> listMateriaPrima = controlador.iniciar();
+                    TablaMateria Gui_NuevaAbm = new TablaMateria(controlador, listMateriaPrima);
+                    Gui_NuevaAbm.setVisible(true);
+                    dispose();     // TODO add your handling code here:
                 }
             }
 
