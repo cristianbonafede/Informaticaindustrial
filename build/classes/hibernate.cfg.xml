@@ -14,6 +14,7 @@
     <property name="hibernate.c3p0.max_statements">50</property>
     <property name="hibernate.c3p0.idle_test_period">3000</property>
     <!--Clases a mapear-->
+    <property name="hibernate.connection.password">1234</property>
     <mapping resource="MateriaPrima.xml"/>
     <mapping resource="ProductoTerminado.xml"/>
     <mapping resource="Maquinaria.xml"/>
