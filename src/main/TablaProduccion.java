@@ -376,6 +376,8 @@ public class TablaProduccion extends javax.swing.JFrame {
             FachadaPersistencia.getInstance().guardar(productoMP);
         }
         //Guardar
+        produccionAFinalizar.getProductoTerminado().setCantidadDisponible(produccionAFinalizar.getProductoTerminado().getCantidadDisponible()+produccionAFinalizar.getCantidadProducir());
+        FachadaPersistencia.getInstance().guardar(produccionAFinalizar.getProductoTerminado());
         FachadaPersistencia.getInstance().guardar(produccionAFinalizar);
         cargarTablaProduccion();
 
