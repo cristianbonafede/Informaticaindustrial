@@ -19,6 +19,17 @@ public class Produccion {
     private Date fechaOrdenProduccion;
     private String estadoOrdenProduccion;
 
+    public Produccion() {
+    }
+
+    public Produccion(int codigoOrdenProduccion, ProductoTerminado productoTerminado, int cantidadProducir, Date fechaOrdenProduccion, String estadoOrdenProduccion) {
+        this.codigoOrdenProduccion = codigoOrdenProduccion;
+        this.productoTerminado = productoTerminado;
+        this.cantidadProducir = cantidadProducir;
+        this.fechaOrdenProduccion = fechaOrdenProduccion;
+        this.estadoOrdenProduccion = estadoOrdenProduccion;
+    }
+
     public int getCodigoOrdenProduccion() {
         return codigoOrdenProduccion;
     }
