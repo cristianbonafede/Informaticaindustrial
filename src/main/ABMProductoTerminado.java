@@ -547,7 +547,7 @@ dtm.setRowCount(0);
            
              List<MateriaPrima> listMateriaPrima = controlador.iniciar();
                 List<ProductoMateriaPrima> listProductoMateriaPrima = controlador.iniciarEstructuraProducto(productoTerminado);
-         EstructuraProdNuevo Gui_NuevaAbm1 = new EstructuraProdNuevo(controlador, listMateriaPrima, productoTerminado, listProductoMateriaPrima);
+         EstructuraProdNuevo Gui_NuevaAbm1 = new EstructuraProdNuevo(controlador, listMateriaPrima, productoTerminado, listProductoMateriaPrima, 1);
         Gui_NuevaAbm1.setVisible(true);
 
             dispose();

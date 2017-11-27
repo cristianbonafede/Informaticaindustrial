@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 /**
@@ -30,10 +31,13 @@ public class EstructuraProdNuevo extends javax.swing.JFrame {
     private int contador = 0;
     List<MateriaPrima> listMateriaPrima;
     List<ProductoMateriaPrima> listProductoMateriaPrima;
+    private boolean nuevo= true;
+    private int pantalla =0; //0  pag inicial, 1 producto nuevo, 2 lista estructura 
     
-    public EstructuraProdNuevo(Controlador controlador, List<MateriaPrima> listMateriaPrima, ProductoTerminado productoTerminado, List<ProductoMateriaPrima> listProductoMateriaPrima ) {
+    public EstructuraProdNuevo(Controlador controlador, List<MateriaPrima> listMateriaPrima, ProductoTerminado productoTerminado, List<ProductoMateriaPrima> listProductoMateriaPrima, int pantalla ) {
         this.controlador = controlador;
         this.productoTerminado = productoTerminado;
+        this.pantalla= pantalla;
         initComponents();
         cargarMateriaPrima(listMateriaPrima);
         cargarProductoMateriaPrima(listProductoMateriaPrima);
@@ -170,6 +174,7 @@ dtm.setRowCount(0);
         jButtonEliminar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         textoProductoTerminado = new javax.swing.JTextPane();
+        jButton1 = new javax.swing.JButton();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -298,6 +303,13 @@ dtm.setRowCount(0);
         textoProductoTerminado.setEditable(false);
         jScrollPane3.setViewportView(textoProductoTerminado);
 
+        jButton1.setText("Finalizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -307,17 +319,9 @@ dtm.setRowCount(0);
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtFiltroMP, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(20, 20, 20)
                                         .addComponent(jLabel2)
@@ -330,24 +334,41 @@ dtm.setRowCount(0);
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 330, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 650, Short.MAX_VALUE)
+                        .addComponent(jButtonEliminar)
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtFiltroMP, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButtonInsertar)
                                 .addGap(206, 206, 206)
                                 .addComponent(Guardar)
-                                .addGap(50, 50, 50))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButtonEliminar)
-                                .addGap(52, 52, 52))))))
+                                .addGap(40, 40, 40)))
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -360,7 +381,7 @@ dtm.setRowCount(0);
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEliminar)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -373,7 +394,8 @@ dtm.setRowCount(0);
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonInsertar)
                     .addComponent(Guardar))
-                .addGap(29, 29, 29))
+                .addGap(23, 23, 23)
+                .addComponent(jButton1))
         );
 
         pack();
@@ -416,26 +438,30 @@ dtm.setRowCount(0);
           
           
           }
+          else{
+               JOptionPane.showMessageDialog(null, "Debe establecer la cantidad necesaria de cada materia prima");
+
+
+          }
       }
       if(listProductoMateriaPrima.size()!=0){
           System.out.println(listProductoMateriaPrima.size());
+            nuevo= false;
+             controlador.modificarSeleccionEstructura(listProdMatPrima);
+           List<ProductoMateriaPrima> listProductoMateriaPrima = controlador.iniciarEstructuraProducto(productoTerminado);
+         EstructuraProdNuevo Gui_NuevaAbm1 = new EstructuraProdNuevo(controlador, listMateriaPrima, productoTerminado, listProductoMateriaPrima, pantalla);
+        Gui_NuevaAbm1.setVisible(true);
 
-                        controlador.modificarSeleccionEstructura(listProdMatPrima);
-                           List<ProductoTerminado> listProductoTerminado = controlador.iniciarProductoTerminado();
-    
-       TablaProducto  Gui_NuevaAbm = new TablaProducto(controlador, listProductoTerminado);
-        Gui_NuevaAbm.setVisible(true);
-         dispose(); 
-               
+            dispose();
       }
                 else{
-
+                nuevo = true;
                 controlador.estructuraNueva(listProdMatPrima); 
-              List<ProductoTerminado> listProductoTerminado = controlador.iniciarProductoTerminado();
-    
-       ABMProductoTerminado  Gui_NuevaAbm = new ABMProductoTerminado(controlador, listProductoTerminado);
-        Gui_NuevaAbm.setVisible(true);
-         dispose();
+             List<ProductoMateriaPrima> listProductoMateriaPrima = controlador.iniciarEstructuraProducto(productoTerminado);
+         EstructuraProdNuevo Gui_NuevaAbm1 = new EstructuraProdNuevo(controlador, listMateriaPrima, productoTerminado, listProductoMateriaPrima, pantalla);
+        Gui_NuevaAbm1.setVisible(true);
+
+            dispose();
 
                         }
           
@@ -539,6 +565,41 @@ dtm.setRowCount(0);
               
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        switch(pantalla){
+            
+            case 1:
+            
+        List<ProductoTerminado> listProductoTerminado = controlador.iniciarProductoTerminado();
+
+        ABMProductoTerminado Gui_NuevaAbm = new ABMProductoTerminado(controlador, listProductoTerminado);
+        Gui_NuevaAbm.setVisible(true);
+        dispose();
+        
+        break;
+        
+            case 0:
+                     PaginaInicial pagina = new PaginaInicial();
+     pagina.setVisible(true);
+     
+     dispose();
+    break;
+    
+            case 2:
+                       List<ProductoMateriaPrima> listProductoMateriaPrima = controlador.iniciarEstructuraProductoCompleta();
+
+        EstructurasProductos Gui_NuevaAbm1 = new EstructurasProductos(controlador, listProductoMateriaPrima);
+        Gui_NuevaAbm1.setVisible(true);
+        dispose();
+        
+                
+        }
+        
+       
+
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -580,6 +641,7 @@ dtm.setRowCount(0);
     private javax.swing.JComboBox<String> comboFiltro;
     private javax.swing.JComboBox<String> comboFiltroEstructura;
     private main.FachadaInterna fachadaInterna1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonInsertar;
     private javax.swing.JLabel jLabel1;

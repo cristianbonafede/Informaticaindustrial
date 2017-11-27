@@ -309,7 +309,7 @@ public class Experto {
             if (materia != null) {
                 System.out.println("LA MATERIA PRIMA INGRESADA YA EXISTE");
             }
-            System.exit(0);
+                           JOptionPane.showMessageDialog(null, "Codigo ya en uso");
         } catch (IndexOutOfBoundsException e) {
         }// Si no encuentra registro cae en catch y lo crea
 
@@ -333,7 +333,7 @@ public class Experto {
             if (orden != null) {
                 System.out.println("La orden INGRESADA YA EXISTE");
             }
-            System.exit(0);
+                           JOptionPane.showMessageDialog(null, "Codigo ya en uso");
         } catch (IndexOutOfBoundsException e) {
         }// Si no encuentra registro cae en catch y lo crea
 
@@ -357,7 +357,7 @@ public class Experto {
             if (costo != null) {
                 System.out.println("LA MATERIA PRIMA INGRESADA YA EXISTE");
             }
-            System.exit(0);
+                           JOptionPane.showMessageDialog(null, "Codigo ya en uso");
         } catch (IndexOutOfBoundsException e) {
         }// Si no encuentra registro cae en catch y lo crea
 
@@ -382,7 +382,7 @@ public class Experto {
             if (maquinaria != null) {
                 System.out.println("LA Maquinaria PRIMA INGRESADA YA EXISTE");
             }
-            System.exit(0);
+                           JOptionPane.showMessageDialog(null, "Codigo ya en uso");
         } catch (IndexOutOfBoundsException e) {
         }// Si no encuentra registro cae en catch y lo crea
 
@@ -407,7 +407,7 @@ public class Experto {
             if (centro != null) {
                 System.out.println("EL Centro INGRESADO YA EXISTE");
             }
-            System.exit(0);
+                           JOptionPane.showMessageDialog(null, "Codigo ya en uso");
         } catch (IndexOutOfBoundsException e) {
         }// Si no encuentra registro cae en catch y lo crea
 
@@ -433,7 +433,7 @@ public class Experto {
             if (producto != null) {
                 System.out.println("LA MATERIA PRIMA INGRESADA YA EXISTE");
             }
-            System.exit(0);
+                           JOptionPane.showMessageDialog(null, "Codigo ya en uso");
         } catch (IndexOutOfBoundsException e) {
         }// Si no encuentra registro cae en catch y lo crea
 
@@ -905,7 +905,7 @@ try{
                 if (estructura != null) {
                     System.out.println("ProductoMateriaPrima INGRESADA YA EXISTE");
                 }
-                System.exit(0);
+                               JOptionPane.showMessageDialog(null, "Codigo ya en uso");
             } catch (IndexOutOfBoundsException e) {
             }// Si no encuentra registro cae en catch y lo crea
 

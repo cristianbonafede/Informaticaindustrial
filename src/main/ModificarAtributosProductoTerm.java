@@ -309,7 +309,7 @@ else{
          List<ProductoMateriaPrima> listProductoMateriaPrima = controlador.iniciarEstructuraProducto(productoTerminado);
          
          System.out.println("jdnsfjnfjsdnf");
-         EstructuraProdNuevo Gui_NuevaAbm1 = new EstructuraProdNuevo(controlador, listMateriaPrima, productoTerminado, listProductoMateriaPrima);
+         EstructuraProdNuevo Gui_NuevaAbm1 = new EstructuraProdNuevo(controlador, listMateriaPrima, productoTerminado, listProductoMateriaPrima,1);
         Gui_NuevaAbm1.setVisible(true);
 
             dispose();

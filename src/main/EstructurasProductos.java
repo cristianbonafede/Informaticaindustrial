@@ -263,7 +263,7 @@ public class EstructurasProductos extends javax.swing.JFrame {
 
          List<ProductoMateriaPrima> listProductoMateriaPrima = controlador.iniciarEstructuraProducto(productoTerminado);
 
-         EstructuraProdNuevo Gui_NuevaAbm1 = new EstructuraProdNuevo(controlador, listMateriaPrima, productoTerminado, listProductoMateriaPrima);
+         EstructuraProdNuevo Gui_NuevaAbm1 = new EstructuraProdNuevo(controlador, listMateriaPrima, productoTerminado, listProductoMateriaPrima, 2);
         Gui_NuevaAbm1.setVisible(true);
 
             dispose();
