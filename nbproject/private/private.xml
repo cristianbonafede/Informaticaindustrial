@@ -3,20 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/ListaOrdenCompra.java</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/TablaMateria.java</file>
             <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/ABMMateriaPrima.java</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/Controlador.java</file>
+            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/EstructuraProdNuevo.java</file>
+            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/ABMMaquinaria.java</file>
             <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/Experto.java</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/TablaProducto.java</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/OrdenCompra.xml</file>
+            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/EstructurasProductos.java</file>
+            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/ABMProductoTerminado.java</file>
+            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/ModificarAtributosProductoTerm.java</file>
             <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/PaginaInicial.java</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/Produccion.xml</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/entidades/ProductoMateriaPrima.java</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/entidades/OrdenCompra.java</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/entidades/Produccion.java</file>
-            <file>file:/C:/Users/Cristian%20Bonafede/Desktop/industrial/ERP/src/main/FachadaInterna.java</file>
         </group>
     </open-files>
 </project-private>
